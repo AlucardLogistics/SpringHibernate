@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.alucard.springHibernate.entity.Student;
 
-public class StudentDemo {
+public class CreateStudentDemo {
 
 	public static void main(String[] args) {
 		
