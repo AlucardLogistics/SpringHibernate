@@ -42,7 +42,7 @@ public class DeleteStudentDemo {
 			session = factory.getCurrentSession();
 			session.beginTransaction();
 			
-			//update email for all users
+			//delete student with id: 5
 			System.out.println("Delete student with id: 5");
 			session.createQuery("delete from Student where id=5")
 								.executeUpdate();
