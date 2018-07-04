@@ -1,4 +1,4 @@
-package om.alucard.springHibernate.demo;
+package com.alucard.springHibernate.demo;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,7 +23,7 @@ public class ReadStudentDemo {
 		try {
 			//create a student object
 			System.out.println("Creating a new student object...");
-			Student tempStudent = new Student("Barry", "Allen", "barryA@fast.com");
+			Student tempStudent = new Student("Barry", "Allen", "barryA@fast.com", null);
 			
 			//start  a transaction
 			session.beginTransaction();

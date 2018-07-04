@@ -1,4 +1,4 @@
-package om.alucard.springHibernate.demo;
+package com.alucard.springHibernate.demo;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

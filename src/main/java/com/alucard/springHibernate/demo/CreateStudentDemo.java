@@ -1,12 +1,15 @@
-package om.alucard.springHibernate.demo;
+package com.alucard.springHibernate.demo;
+
+import java.util.Date;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.alucard.springHibernate.entity.Student;
+import com.alucard.springHibernate.utils.DateUtils;
 
-public class PrimaryKeyDemo {
+public class CreateStudentDemo {
 
 	public static void main(String[] args) {
 		
@@ -21,26 +24,29 @@ public class PrimaryKeyDemo {
 		
 		
 		try {
-			//create 3 student objects
-			System.out.println("Creating 3 student objects...");
-			Student tempStudent1 = new Student("Bruce", "Wayne", "bruceW@Gotham.com");
-			Student tempStudent2 = new Student("Clark", "Kent", "clarkK@dailyPlanet.com");
-			Student tempStudent3 = new Student("Diana", "Prince", "DianaP@temiskera.com");
+			//create a student object
+			System.out.println("Creating a new student object...");
+			
+			String theDateOfBirthStr = "31/12/1989";
+			 
+            Date theDateOfBirth = DateUtils.parseDate(theDateOfBirthStr);
+			
+			Student tempStudent = new Student("Dragos", "Stoian", "sadics@live.com", theDateOfBirth);
 			
 			//start  a transaction
 			session.beginTransaction();
 			
 			//save the student object
-			System.out.println("Saving the students...");
-			session.save(tempStudent1);
-			session.save(tempStudent2);
-			session.save(tempStudent3);
+			System.out.println("Saving the student...");
+			session.save(tempStudent);
 			
 			//commit transaction
 			session.getTransaction().commit();
 			
 			System.out.println("Done! Phewww..");
 			
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
 			factory.close();
 		}

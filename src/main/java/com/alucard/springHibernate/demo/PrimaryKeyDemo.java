@@ -1,4 +1,4 @@
-package om.alucard.springHibernate.demo;
+package com.alucard.springHibernate.demo;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.alucard.springHibernate.entity.Student;
 
-public class CreateStudentDemo {
+public class PrimaryKeyDemo {
 
 	public static void main(String[] args) {
 		
@@ -21,16 +21,20 @@ public class CreateStudentDemo {
 		
 		
 		try {
-			//create a student object
-			System.out.println("Creating a new student object...");
-			Student tempStudent = new Student("Dragos", "Stoian", "sadics@live.com");
+			//create 3 student objects
+			System.out.println("Creating 3 student objects...");
+			Student tempStudent1 = new Student("Bruce", "Wayne", "bruceW@Gotham.com", null);
+			Student tempStudent2 = new Student("Clark", "Kent", "clarkK@dailyPlanet.com", null);
+			Student tempStudent3 = new Student("Diana", "Prince", "DianaP@temiskera.com", null);
 			
 			//start  a transaction
 			session.beginTransaction();
 			
 			//save the student object
-			System.out.println("Saving the student...");
-			session.save(tempStudent);
+			System.out.println("Saving the students...");
+			session.save(tempStudent1);
+			session.save(tempStudent2);
+			session.save(tempStudent3);
 			
 			//commit transaction
 			session.getTransaction().commit();
